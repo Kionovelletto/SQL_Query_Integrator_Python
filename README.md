@@ -32,11 +32,13 @@ Contando que o Python esteja instalado.
 
 # Instale o unixodbc-dev para usar drivers ODBC no Unix:
 Fonte:(https://www.unixodbc.org/)
+```batch
 sudo apt-get install unixodbc-dev python3-pymssql -y
-
+```
 # Instale o gerenciador de pacotes Python:
+```batch
 sudo apt-get install python-pip python3-pip -y
-
+```
 # Modo de instalação 01
 No shell crie o script abaixo:
 ```shell
