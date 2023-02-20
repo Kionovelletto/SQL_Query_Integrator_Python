@@ -1,9 +1,9 @@
 version: '3.3'
 
 services:
-  sqlserver:
-    container_name: sqlserver
-    hostname: sqlserve
+  mssqlserver:
+    container_name: mssqlserver
+    hostname: mssqlserver
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       SA_PASSWORD: "SqlServer2022!"

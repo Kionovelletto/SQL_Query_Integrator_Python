@@ -133,4 +133,5 @@ SELECT * FROM Vendas;
 GO
 ```
 
-Vídeo: https://www.youtube.com/watch?v=Mdg1D-Kdmrw
+# Documentação da prova de conexão:
+https://learn.microsoft.com/pt-br/sql/connect/python/pyodbc/step-3-proof-of-concept-connecting-to-sql-using-pyodbc?view=sql-server-ver16

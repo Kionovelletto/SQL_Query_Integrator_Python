@@ -1,5 +1,5 @@
 import pyodbc 
-# STRING DE CONEXÃO COM O BANCO DE DADOS
+# STRING DE CONEXÃO AO BANCO
 # server = 'localhost\sqlexpress' # for a named instance
 # server = 'myserver,port' # to specify an alternate port
 connection_string = (
@@ -46,8 +46,6 @@ END"""
 cursor.execute(command_create_tbl)
 cursor.commit()
 
-connection = pyodbc.connect(connection_string)
-print("Connection success, done.")
 
 # VARIAVIES PARA ADD OS VALORES, NO COMANDO ABAIXO:
 cliente = "Caio"
