@@ -14,7 +14,9 @@ connection_string = (
 
 # EXIBE SE FOI CONECTADO
 connection = pyodbc.connect(connection_string)
-print("Connection success, done.")
+print("⚠️___________________Connection____________________________")
+print("Connection success, done.✔️")
+print()
 
 # EXECUTANDO QUERYS
 cursor = connection.cursor()
@@ -45,9 +47,11 @@ BEGIN
 END"""
 cursor.execute(command_create_tbl)
 cursor.commit()
+print("⚠️___________________________Create Table______________________________")
+print(command_create_tbl)
+print()
+print('Table create, done ✔️')
 
-connection = pyodbc.connect(connection_string)
-print("Connection success, done.")
 
 # VARIAVIES PARA ADD OS VALORES, NO COMANDO ABAIXO:
 cliente = "Caio"
@@ -65,3 +69,7 @@ VALUES
 
 cursor.execute(command)
 cursor.commit()
+print("⚠️___________________________Insert____________________________________")
+print(command)
+print()
+print("Insert success, done. ✔️")
