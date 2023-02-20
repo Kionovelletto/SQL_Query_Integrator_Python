@@ -93,8 +93,8 @@ echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
 
 # Sintaxe para conexão ao SQL Server:
 
-```sql
-SINTAXE: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Sua_Senha
+```shell
+{SINTAXE}: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <Sua_Senha>
 ```
 
 # Criando database:
