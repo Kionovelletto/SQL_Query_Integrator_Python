@@ -1,0 +1,88 @@
+# VIRTUAL ENV
+python -m venv venv
+source venv/bin/activate
+
+# On Linux:
+Instale  o unixodbc-dev para poder utilizar drivers ODBC no linux(https://www.unixodbc.org/):
+sudo apt-get install unixodbc-dev python3-pymssql -y
+
+Instale o gerenciador de pacotes Python:
+sudo apt-get install python-pip python3-pip -y
+
+Agora instale o pyodbc e tanbém o upgrade:
+pip install pyodbc
+pip install --upgrade pip
+
+# On Windows:
+# Instale o pyodbc e faça o upgrade
+pip install pyodbc
+pip install --upgrade pip
+
+# pyodbc wiki:
+https://github.com/mkleehammer/pyodbc/wiki
+
+vim install_odbc_sqlserver.sh
+#CONTEUDO:
+if ! [[ "18.04 20.04 22.04" == *"$(lsb_release -rs)"* ]];
+then
+    echo "Ubuntu $(lsb_release -rs) is not currently supported.";
+    exit;
+fi
+
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+exit
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+source ~/.bashrc
+# optional: for unixODBC development headers
+sudo apt-get install -y unixodbc-dev
+
+OU
+
+wget https://packages.microsoft.com/ubuntu/21.04/prod/pool/main/m/msodbcsql18/msodbcsql18_18.0.1.1-1_amd64.deb
+wget https://packages.microsoft.com/ubuntu/21.04/prod/pool/main/m/mssql-tools18/mssql-tools18_18.0.1.1-1_amd64.deb
+sudo dpkg -i msodbcsql18_18.0.1.1-1_amd64.deb
+sudo dpkg -i mssql-tools18_18.0.1.1-1_amd64.deb
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+
+# Conectar ao SqlServer e criar:
+# SINTAXE: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P SqlServer2022!
+
+CREATE DATABASE caio_db;
+GO
+USE caio_db;
+GO
+CREATE TABLE Vendas (
+    id_venda int, 
+    cliente varchar(255), 
+    produto varchar(255), 
+    data_venda date, 
+    preco decimal(12, 2), 
+    quantidade int,
+    )
+GO
+
+# Inserir os dados:
+# SINTAXE: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P SqlServer2022!
+
+USE caio_db;
+INSERT INTO Vendas(id_venda, cliente, produto, data_venda, preco, quantidade)
+VALUES
+    (1, 'Caio', 'Computer', GetDate(), 7680, 1)
+GO
+
+# Consultar os dados inseridos:
+# SINTAXE: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P SqlServer2022!
+
+USE caio_db;
+SELECT * FROM Vendas;
+GO
+
+https://www.youtube.com/watch?v=Mdg1D-Kdmrw

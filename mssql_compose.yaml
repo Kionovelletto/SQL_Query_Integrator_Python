@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  sqlserver:
+    container_name: sqlserver
+    hostname: sqlserve
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "SqlServer2022!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      #MSSQL_DATA_DIR: /data_sqlserver
+    #volumes:
+      #- ./sqlserver/data:/data_sqlserver
+    ports:
+      - "1433:1433"
