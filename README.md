@@ -30,7 +30,7 @@ docker-compose -f mssql_compose.yaml up -d
 ## Pré requisitos sistema operacional Unix:
 Contando que o Python esteja instalado.
 
-# Instale o unixodbc-dev para poder utilizar drivers ODBC no linux:
+# Instale o unixodbc-dev para usar drivers ODBC no Unix:
 Fonte:(https://www.unixodbc.org/)
 sudo apt-get install unixodbc-dev python3-pymssql -y
 
